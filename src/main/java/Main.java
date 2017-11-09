@@ -1,28 +1,27 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
-    private double a;
-    private double b;
 
-    public double div() {
-        return a / b;
+    public static  double div(double a , double b) throws  ArithmeticException,
+        InputMismatchException {
+        double c;
+        if (b==0){
+            throw new ArithmeticException();
+        }
+        c = a / b;
+        return c;
     }
 
-    public void setA(double a) {
-        this.a = a;
-    }
-
-    public void setB(double b) {
-        this.b = b;
-    }
 
     public static void main(String [] args) {
         Main m = new Main();
         Scanner scanner = new Scanner(System.in);
-        m.setA(scanner.nextDouble());
-        m.setB(scanner.nextDouble());
+        System.out.println("input a, b");
+        double a = scanner.nextDouble();
+        double b = scanner.nextDouble();
         try {
-            System.out.println(m.div());
+            System.out.println(m.div(a, b));
         } catch (ArithmeticException ae){
             ae.printStackTrace();
         }
