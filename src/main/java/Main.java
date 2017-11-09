@@ -1,36 +1,29 @@
 import java.util.Scanner;
 
 public class Main {
-    private double a;
-    private double b;
-
-    public double div() {
-        return a / b;
-    }
-
-    public void setA(double a) {
-        this.a = a;
-    }
-
-    public void setB(double b) {
-        this.b = b;
+    public int readNumber(int start, int end) {
+        int count;
+        Scanner scanner = new Scanner(System.in);
+        count = scanner.nextInt();
+        if ( count >= start && count <= end) {
+            return count;
+        } else throw new RuntimeException();
     }
 
     public static void main(String [] args) {
         Main m = new Main();
         Scanner scanner = new Scanner(System.in);
-        m.setA(scanner.nextDouble());
-        m.setB(scanner.nextDouble());
-        try {
-            System.out.println(m.div());
-        } catch (ArithmeticException ae){
-            ae.printStackTrace();
+        int start, end;
+        System.out.println("input boundary sequence");
+        System.out.println("start: ");
+        start = scanner.nextInt();
+        System.out.println("end:");
+        end = scanner.nextInt();
+        int[] array = new int[10];
+        System.out.println("input growing sequence of numbers");
+        for (int  i = 0; i < array.length; i++) {
+            System.out.println("output" + m.readNumber(start, end));
         }
-        catch (RuntimeException re) {
-            re.printStackTrace();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+
     }
 }
